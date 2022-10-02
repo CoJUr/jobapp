@@ -9,5 +9,5 @@ def hello(request):
     return HttpResponse("Hello World")
 
 
-def show_details(request):
-    return HttpResponse("Job detail page")
+def show_details(request, id):
+    return HttpResponse(f"Job detail page {id}")
