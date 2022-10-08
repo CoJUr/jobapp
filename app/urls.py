@@ -3,8 +3,8 @@ from app import views  # rather than   from app.views import hello, show_details
 
 
 urlpatterns = [
-    path('', views.job_list),
-    path('job/<int:id>', views.show_details),
+    path('', views.job_list, name='jobs_home'),
+    path('job/<int:id>', views.show_details, name='jobs_detail'),
     # path('job/<str:id>', views.show_details)
 ]
 
