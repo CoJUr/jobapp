@@ -3,7 +3,7 @@ from app import views  # rather than   from app.views import hello, show_details
 
 
 urlpatterns = [
-    path('', views.hello),
+    path('', views.job_list),
     path('job/<int:id>', views.show_details),
     # path('job/<str:id>', views.show_details)
 ]
