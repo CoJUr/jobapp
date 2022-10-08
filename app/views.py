@@ -19,7 +19,7 @@ def hello(request):
 
 
 def show_details(request, id):
-    # return HttpResponse(f"<h3>Job detail page {id}<h3>")
-    # site = "https://google.com"
+
+    print(type(id))
     return_html = f"<h1>{job_title[id]}</h1>  <h3>{job_description[id]}</h3>"
-    return HttpResponse(f"Visit <a href={site}>Google here </a>")
+    return HttpResponse(return_html)

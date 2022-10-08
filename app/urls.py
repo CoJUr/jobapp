@@ -4,5 +4,5 @@ from app import views  # rather than   from app.views import hello, show_details
 
 urlpatterns = {
     path('', views.hello),
-    path('job/<id>', views.show_details),
+    path('job/<int:id>', views.show_details),
 }
