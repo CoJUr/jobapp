@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 
 job_title = [
     "First Job",
-    "Second Job"
+    "Second Job",
 ]
 
 job_description = [
@@ -16,7 +16,12 @@ job_description = [
 
 
 def hello(request):
-    return HttpResponse("<h3>Hello World</h3>")
+    for job_desc in job_description:
+        htm = f"<div>{job_desc}</div>"
+
+    for job in job_title:
+        html = f"<li>{job}<li>"
+    return HttpResponse("<h3>Hello World! Here are all the jobs:"+html + "</h3>" + htm)
 
 
 def show_details(request, id):
