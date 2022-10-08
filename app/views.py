@@ -11,7 +11,7 @@ job_title = [
 
 job_description = [
     "First job description",
-    "Second job description"
+    "Second job description",
     "Third job description"
 ]
 # Create your views here.
@@ -30,7 +30,8 @@ def job_list(request):
 
     list_of_jobs = "<ul>"
     for j in job_title:
-        list_of_jobs += f"<li>{j} </li>"
+        job_id = job_title.index(j)
+        list_of_jobs += f"<li><a href='job/{job_id}'>{j}</a> </li>"
     list_of_jobs += "</ul>"
     return HttpResponse(list_of_jobs)
 
