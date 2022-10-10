@@ -1,6 +1,6 @@
 from curses.ascii import HT
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect
 from django.urls import reverse
 
@@ -42,8 +42,12 @@ def show_details(request, id):
 
     print(type(id))
 
-    if id == 0:
-        return redirect(reverse('jobs_home'))
+    try:
+        if id == 0:
+            return redirect(reverse('jobs_home'))
 
-    return_html = f"<h1>{job_title[id]}</h1>  <h3>{job_description[id]}</h3>"
-    return HttpResponse(return_html)
+        return_html = f"<h1>{job_title[id]}</h1>  <h3>{job_description[id]}</h3>"
+        return HttpResponse(return_html)
+
+    except:
+        return HttpResponseNotFound("Not found")
