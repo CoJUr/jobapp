@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.template import loader
 
 job_title = [
     "First Job",
@@ -19,6 +20,10 @@ job_description = [
 # views (classes) defined here
 
 
+def hello(request):
+    template = loader.get_template('hello.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 # def hello(request):
 #     for job_desc in job_description:
 #         htm = f"<div>{job_desc}</div>"
@@ -26,6 +31,7 @@ job_description = [
 #     for job in job_title:
 #         html = f"<li>{job}<li>"
 #     return HttpResponse("<h3>Hello World! Here are all the jobs:"+html + "</h3>" + htm)
+
 
 def job_list(request):
 

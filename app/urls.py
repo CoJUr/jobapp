@@ -4,6 +4,7 @@ from app import views  # rather than   from app.views import hello, show_details
 
 urlpatterns = [
     path('', views.job_list, name='jobs_home'),
+    path('hello/', views.hello, name='hello'),
     path('job/<int:id>', views.show_details, name='jobs_detail'),
     # path('job/<str:id>', views.show_details)
 ]
