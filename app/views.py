@@ -24,16 +24,18 @@ class TempClass:
     x = 5
 
 # render() syntax:  render(<request-object>, <tempplate>, <context>)     django.shortcuts
+# template tags: {% %}    perform inheritance: extends tag    declaring blocks: block tag    imports: import tag
 
 
 def hello(request):
-    # template = loader.get_template('app/hello.html')
+
     list = ["alpha", "beta"]
     temp = TempClass()
+    is_authenticated = False
     one_moe = "Challenge time"
     age = 15
     context = {"name": "Django", "age": 30, "first_list": list,
-               "temp_object": temp, "one_more_time": one_moe, "user_age": age}
+               "temp_object": temp, "one_more_time": one_moe, "user_age": age, "is_authenticated": is_authenticated}
     # return HttpResponse(template.render(context, request))
     return render(request, "app/hello.html", context)
 # def hello(request):
