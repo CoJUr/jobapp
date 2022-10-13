@@ -23,13 +23,16 @@ job_description = [
 class TempClass:
     x = 5
 
+# render() syntax:  render(<request-object>, <tempplate>, <context>)     django.shortcuts
+
 
 def hello(request):
-    template = loader.get_template('app/hello.html')
+    # template = loader.get_template('app/hello.html')
     list = ["alpha", "beta"]
     temp = TempClass()
     context = {"name": "Django", "first_list": list, "temp_object": temp}
-    return HttpResponse(template.render(context, request))
+    # return HttpResponse(template.render(context, request))
+    return render(request, "app/hello.html", context)
 # def hello(request):
 #     for job_desc in job_description:
 #         htm = f"<div>{job_desc}</div>"
