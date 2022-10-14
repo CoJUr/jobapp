@@ -9,8 +9,16 @@
 <h2>{{one_more_time}}</h2>
 <h2>{{user_age}}</h2>
 
+<h1>Filters</h1>
+{{ first_list|length }}
+<br>
+{{ first_list|length_is:"2" }}
+{{ first_list|ljust:"10" }}
 
-{% comment %} {{ variable_name }} {% endcomment %} 
+
+{% comment 'first_comment' %}
+comments introduced officially, huzzah
+{%  endcomment %}
 
 {% for x in first_list%}
     <p>First: {{x}}</p>
