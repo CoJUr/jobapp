@@ -17,12 +17,17 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import include, path
 
+from app import views
+
 
 def hello(request):
     return HttpResponse("Hello World")
 
 
 urlpatterns = [
+    path('', views.job_list, name='jobs_home'),
+    # path('hello/', views.hello, name='hello'),
+    # path('job/<int:id>', views.job_detail, name='jobs_detail')
     path('admin/', admin.site.urls),
     path('', include('app.urls'))
 ]

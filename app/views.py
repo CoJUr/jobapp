@@ -8,13 +8,13 @@ from django.template import loader
 job_title = [
     "First Job",
     "Second Job",
-    "Third Job"
+    "Third Job",
 ]
 
 job_description = [
     "First job description",
     "Second job description",
-    "Third job description"
+    "Third job description",
 ]
 # Create your views here.
 # classes defined here
@@ -54,6 +54,7 @@ def job_list(request):
     # for j in job_title:
     #     job_id = job_title.index(j)
     #     detail_url = reverse('jobs_detail', args=(job_id,))
+    #       ^getting url with params with reverse function. url tag analog {% url 'url-name' %}
     #     list_of_jobs += f"<li><a href='{detail_url}'>{j}</a> </li>"
     # list_of_jobs += "</ul>"
     # return HttpResponse(list_of_jobs)
