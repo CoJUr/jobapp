@@ -25,6 +25,7 @@ class TempClass:
 
 # render() syntax:  render(<request-object>, <tempplate>, <context>)     django.shortcuts
 # template tags: {% %}    perform inheritance: extends tag    declaring blocks: block tag    imports: import tag
+# For loop tags:   {% for ___ in ___%} <logic>  {% endfor %}
 
 
 def hello(request):
@@ -49,13 +50,15 @@ def hello(request):
 
 def job_list(request):
 
-    list_of_jobs = "<ul>"
-    for j in job_title:
-        job_id = job_title.index(j)
-        detail_url = reverse('jobs_detail', args=(job_id,))
-        list_of_jobs += f"<li><a href='{detail_url}'>{j}</a> </li>"
-    list_of_jobs += "</ul>"
-    return HttpResponse(list_of_jobs)
+    # list_of_jobs = "<ul>"
+    # for j in job_title:
+    #     job_id = job_title.index(j)
+    #     detail_url = reverse('jobs_detail', args=(job_id,))
+    #     list_of_jobs += f"<li><a href='{detail_url}'>{j}</a> </li>"
+    # list_of_jobs += "</ul>"
+    # return HttpResponse(list_of_jobs)
+    context = {"job_title_list": job_title}
+    return render(request, "app/index.html", context)
 
 
 def show_details(request, id):
@@ -66,8 +69,11 @@ def show_details(request, id):
         if id == 0:
             return redirect(reverse('jobs_home'))
 
-        return_html = f"<h1>{job_title[id]}</h1>  <h3>{job_description[id]}</h3>"
-        return HttpResponse(return_html)
+        # return_html = f"<h1>{job_title[id]}</h1>  <h3>{job_description[id]}</h3>"
+        # return HttpResponse(return_html)
+        context = {"job_title": job_title[id],
+                   "job_description": job_description[id]}
+        return render(request, "app/job_detail.html", context)
 
     except:
         return HttpResponseNotFound("Not found")
