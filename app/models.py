@@ -7,6 +7,9 @@ from django.db import models
 class JobPost(models.Model):
     # fields
     title = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now_add=True)
+    salary = models.IntegerField()
 
 # commands for migrations:
 # makemigrations -> creates new migrations based on identified changes in models
