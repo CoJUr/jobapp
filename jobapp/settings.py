@@ -73,6 +73,8 @@ WSGI_APPLICATION = 'jobapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# field types
+# https://docs.djangoproject.com/en/4.1/ref/models/fields/
 
 DATABASES = {
     'default': {

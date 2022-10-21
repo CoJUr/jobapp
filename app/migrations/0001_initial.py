@@ -2,6 +2,8 @@
 
 from django.db import migrations, models
 
+# class is part of django.db.migrations package
+
 
 class Migration(migrations.Migration):
 
@@ -10,11 +12,14 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
+    # django.db.migrations.operations subclass of Operations.
+    # sql queries will be generated according to operations defined   e.g. create/delete model, add/remove/alter/rename field
     operations = [
         migrations.CreateModel(
             name='JobPost',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=200)),
             ],
         ),
